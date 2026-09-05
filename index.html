@@ -6,11 +6,22 @@
   <title>HAPPY BIRTHDAY KIM</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Damion&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Damion&family=Poppins:wght@300;500;700&family=Reenie+Beanie&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="stars" id="stars"></div>
+  <div class="balloons" aria-hidden="true">
+    <span class="balloon b1"></span>
+    <span class="balloon b2"></span>
+    <span class="balloon b3"></span>
+    <span class="balloon b4"></span>
+    <span class="balloon b5"></span>
+    <span class="balloon b6"></span>
+  </div>
+  <div class="marquee" aria-hidden="true">
+    <span>happy birthday kim ✦ cumpleaños feliz ✦ feliz aniversário ✦ happy birthday kim ✦</span>
+  </div>
 
   <main class="card">
     <div class="hoops">
@@ -28,14 +39,81 @@
       Hoy el mundo entero es tu plató, Kim. Naciste para ser protagonista,
       para robar la escena y dejar el drama <em>sobre</em> la mesa, no en tu vida.
       Que hoy brilles como el destello de un aro enorme
-      y que este año gires cosas a tu favor, sin guion, sin atajos.
-      Maddie estaría orgullosa de su fan favorito. ✨
+      y que este año gires las cosas a tu favor, sin guion, sin atajos.
     </p>
 
     <button class="confetti-btn" id="confettiBtn">🎉 ¡MÁS DRAMA! 🎉</button>
 
-    <p class="footer">con cariño, para ti ⚡</p>
+    <div class="letter">
+      <span class="tape"></span>
+      <h2 class="letter-title">Para Kim, con todo el cariño 🖤</h2>
+      <p>
+        Aunque estés lejos, desde hoy hasta donde te toque estar, esto es tuyo.
+        Gracias por cada risa, cada juego, cada meme y cada momento random
+        que terminó en lágrimas de tanto reír. Que cumplas muchísimos más,
+        que nunca te falten ganas ni gente que te quiera, y que cada año
+        encuentres aquí una sola razón para sonreír: vos.
+      </p>
+      <p class="sign">— tu aro favorito del barrio, <span class="hand">Mauri</span> ⚡</p>
+    </div>
+
+    <p class="footer">con cariño, para ti ✨</p>
   </main>
+
+  <section class="gallery">
+    <h2 class="gallery-title glitter">Nuestros momentos</h2>
+    <p class="gallery-sub"><span class="hand">recuerdos de nosotros jugando</span></p>
+    <div class="grid">
+
+      <figure class="polaroid p1">
+        <img src="img/auto.png" alt="recuerdo auto" loading="lazy" />
+        <figcaption>modo automático 🏎️</figcaption>
+      </figure>
+
+      <figure class="polaroid p2">
+        <img src="img/galaxia.png" alt="recuerdo galaxia" loading="lazy" />
+        <figcaption>todita una galaxia ✨</figcaption>
+      </figure>
+
+      <figure class="polaroid p3">
+        <img src="img/lindote.png" alt="recuerdo lindote" loading="lazy" />
+        <figcaption>lindote en su día 🤍</figcaption>
+      </figure>
+
+      <figure class="polaroid p4">
+        <img src="img/maurii.png" alt="recuerdo maurii" loading="lazy" />
+        <figcaption>modo maurii activado ⚡</figcaption>
+      </figure>
+
+      <figure class="polaroid p5">
+        <img src="img/maurilindo.png" alt="recuerdo maurilindo" loading="lazy" />
+        <figcaption>mauri lindo versión hd 🌟</figcaption>
+      </figure>
+
+      <figure class="polaroid p6">
+        <img src="img/maurinalgon.png" alt="recuerdo maurinalgon" loading="lazy" />
+        <figcaption>momento muy serio 😹</figcaption>
+      </figure>
+
+      <figure class="polaroid p7">
+        <img src="img/pobre.png" alt="recuerdo pobre" loading="lazy" />
+        <figcaption>pobre pero corazón rico 💫</figcaption>
+      </figure>
+
+      <figure class="polaroid p8">
+        <img src="img/sinpelo.png" alt="recuerdo sinpelo" loading="lazy" />
+        <figcaption>sin pelo de preocupaciones 😎</figcaption>
+      </figure>
+
+      <figure class="polaroid p9">
+        <img src="img/sss.png" alt="recuerdo sss" loading="lazy" />
+        <figcaption>shhh… secreto del cumpleaños 🤫</figcaption>
+      </figure>
+
+    </div>
+  </section>
+
+  <button class="music-btn" id="musicBtn">▶ poner música</button>
 
   <canvas id="confetti"></canvas>
   <script src="app.js"></script>

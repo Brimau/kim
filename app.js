@@ -63,9 +63,56 @@ function burst() {
   }
 }
 
-document.getElementById("confettiBtn").addEventListener("click", burst);
+document.getElementById("confettiBtn").addEventListener("click", drama);
 setTimeout(burst, 800);
 setTimeout(burst, 2600);
+
+const DRAMA_WORDS = ["¡MADDIE!!", "💅", "✨", "que siga el drama", "🕶️", "en su carita", "💋", "ROBA LA ESCENA", "👑", "sin filtros", "⚡", "main character 🎬"];
+
+function drama() {
+  const btn = document.getElementById("confettiBtn");
+  const card = document.querySelector(".card");
+  const title = document.querySelector(".title");
+  const flash = document.getElementById("flash");
+
+  burst(260);
+
+  /* sacudón de pantalla */
+  document.body.classList.remove("shake");
+  void document.body.offsetWidth;
+  document.body.classList.add("shake");
+  setTimeout(() => document.body.classList.remove("shake"), 600);
+
+  /* la tarjeta rebota */
+  card.classList.remove("pop");
+  void card.offsetWidth;
+  card.classList.add("pop");
+  setTimeout(() => card.classList.remove("pop"), 750);
+
+  /* destello */
+  flash.classList.remove("go");
+  void flash.offsetWidth;
+  flash.classList.add("go");
+  setTimeout(() => flash.classList.remove("go"), 750);
+
+  /* el nombre KIM se prende */
+  title.classList.add("drama");
+  setTimeout(() => title.classList.remove("drama"), 700);
+
+  /* palabras de reina volando desde el botón */
+  const rect = btn.getBoundingClientRect();
+  for (let i = 0; i < 6; i++) {
+    const word = document.createElement("span");
+    word.className = "drama-word";
+    word.textContent = DRAMA_WORDS[(Math.random() * DRAMA_WORDS.length) | 0];
+    word.style.left = rect.left + rect.width / 2 + "px";
+    word.style.top = rect.top + "px";
+    word.style.setProperty("--dx", (Math.random() - 0.5) * 260 + "px");
+    word.style.setProperty("--rot", (Math.random() - 0.5) * 50 + "deg");
+    document.body.appendChild(word);
+    setTimeout(() => word.remove(), 1200);
+  }
+}
 
 /* destellos que siguen el cursor */
 let lastSpark = 0;

@@ -468,6 +468,72 @@ body {
   to { transform: translateY(24px) scale(0); opacity: 0; }
 }
 
+/* ---------- drama ---------- */
+#flash {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.9), rgba(255, 62, 165, 0.35) 60%, transparent);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 6;
+}
+
+#flash.go {
+  animation: flashAnim 0.7s ease forwards;
+}
+
+@keyframes flashAnim {
+  0% { opacity: 0; }
+  20% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+body.shake {
+  animation: screenShake 0.55s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+}
+
+@keyframes screenShake {
+  10%, 90% { transform: translate(-2px, 1px); }
+  20%, 80% { transform: translate(4px, -2px); }
+  30%, 50%, 70% { transform: translate(-6px, 3px); }
+  40%, 60% { transform: translate(6px, -3px); }
+}
+
+.card.pop {
+  animation: cardPop 0.7s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+@keyframes cardPop {
+  0% { transform: scale(1); }
+  35% { transform: scale(1.05); }
+  70% { transform: scale(0.97); }
+  100% { transform: scale(1); }
+}
+
+.title.drama {
+  color: transparent;
+  text-shadow: 0 0 60px rgba(255, 62, 165, 0.9), 0 0 120px rgba(255, 209, 102, 0.8);
+  animation: hue 0.6s linear infinite;
+}
+
+.drama-word {
+  position: fixed;
+  z-index: 40;
+  pointer-events: none;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--gold);
+  text-shadow: 0 0 12px var(--pink);
+  animation: dramaFloat 1.2s ease-out forwards;
+  font-family: "Damion", cursive;
+}
+
+@keyframes dramaFloat {
+  0% { transform: translate(0, 0) rotate(0deg) scale(0.6); opacity: 0; }
+  15% { opacity: 1; }
+  100% { transform: translate(var(--dx), -160px) rotate(var(--rot)) scale(1.4); opacity: 0; }
+}
+
 /* ---------- canvas ---------- */
 #confetti {
   position: fixed;

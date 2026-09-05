@@ -1,0 +1,204 @@
+:root {
+  --pink: #ff3ea5;
+  --purple: #8a2be2;
+  --gold: #ffd166;
+  --bg: #12061f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: radial-gradient(circle at 50% -10%, #2a0b42 0%, var(--bg) 60%);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  overflow-x: hidden;
+}
+
+.stars {
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(2px 2px at 20% 30%, #fff, transparent),
+    radial-gradient(2px 2px at 70% 15%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 40% 70%, #ffd1ee, transparent),
+    radial-gradient(1.5px 1.5px at 85% 60%, #ffe9c9, transparent),
+    radial-gradient(2px 2px at 10% 85%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 55% 45%, #d9b3ff, transparent),
+    radial-gradient(2px 2px at 90% 90%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 30% 10%, #ffd1ee, transparent);
+  background-size: 300px 300px;
+  opacity: 0.6;
+  z-index: 0;
+  animation: twinkle 4s ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: 0.35; }
+  to { opacity: 0.75; }
+}
+
+.card {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 620px;
+  width: 100%;
+  padding: 40px 24px 48px;
+  border-radius: 28px;
+  background: linear-gradient(160deg, rgba(255, 62, 165, 0.18), rgba(138, 43, 226, 0.18));
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 0 60px rgba(255, 62, 165, 0.35), 0 0 120px rgba(138, 43, 226, 0.25);
+  backdrop-filter: blur(6px);
+}
+
+/* Aros gigantes "Maddie" */
+.hoops {
+  position: relative;
+  height: 70px;
+  margin-bottom: 8px;
+}
+
+.hoop {
+  position: absolute;
+  top: 0;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  border: 9px solid var(--gold);
+  box-shadow: 0 0 18px rgba(255, 209, 102, 0.8), inset 0 0 10px rgba(255, 209, 102, 0.5);
+  animation: sparkle 2.4s ease-in-out infinite alternate;
+}
+
+.hoop.left { left: 38%; }
+.hoop.right { right: 38%; }
+
+@media (max-width: 480px) {
+  .hoop.left { left: 28%; }
+  .hoop.right { right: 28%; }
+}
+
+@keyframes sparkle {
+  from { filter: drop-shadow(0 0 4px rgba(255, 209, 102, 0.6)); transform: scale(1); }
+  to { filter: drop-shadow(0 0 22px rgba(255, 209, 102, 1)); transform: scale(1.06); }
+}
+
+.kicker {
+  font-size: 0.85rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #ffd1ee;
+  margin-bottom: 10px;
+  opacity: 0.9;
+}
+
+.title {
+  font-family: "Monoton", cursive;
+  font-size: clamp(4rem, 16vw, 7rem);
+  font-weight: 400;
+  line-height: 1;
+  background: linear-gradient(90deg, #ff3ea5, var(--gold), #ff3ea5);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: hue 4s linear infinite;
+  text-shadow: 0 0 40px rgba(255, 62, 165, 0.4);
+}
+
+@keyframes hue {
+  to { background-position: 200% center; }
+}
+
+.subtitle {
+  font-family: "Damion", cursive;
+  font-size: clamp(2.2rem, 8vw, 3.4rem);
+  margin-top: 6px;
+  animation: glitter 1.8s ease-in-out infinite alternate;
+}
+
+.glitter {
+  background-image: linear-gradient(120deg, #fff 0%, var(--gold) 25%, #fff 50%, var(--gold) 75%, #fff 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: glitter 2.2s linear infinite;
+}
+
+@keyframes glitter {
+  to { background-position: 200% center; }
+}
+
+.divider {
+  color: var(--gold);
+  font-size: 1.3rem;
+  margin: 18px 0;
+  letter-spacing: 8px;
+  animation: sparkle 2s ease-in-out infinite alternate;
+}
+
+.message {
+  font-weight: 300;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #f2e6ff;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.message em {
+  color: var(--pink);
+  font-style: normal;
+  font-weight: 500;
+}
+
+.confetti-btn {
+  margin-top: 26px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  padding: 14px 30px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient(90deg, var(--pink), var(--purple));
+  box-shadow: 0 8px 30px rgba(255, 62, 165, 0.5);
+  transition: transform 0.15s ease;
+}
+
+.confetti-btn:hover {
+  transform: scale(1.07);
+}
+
+.confetti-btn:active {
+  transform: scale(0.96);
+}
+
+.footer {
+  margin-top: 26px;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+#confetti {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+}

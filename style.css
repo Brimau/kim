@@ -395,6 +395,95 @@ body {
   color: #111;
 }
 
+/* ---------- estrellas ---------- */
+.stars-section {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  width: 100%;
+  margin: 92px auto 0;
+  text-align: center;
+}
+
+.stars-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 34px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.star-card {
+  position: relative;
+  background: #fff;
+  padding: 12px 12px 16px;
+  border-radius: 8px;
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.65);
+  transform: rotate(var(--r, 0deg));
+  transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.3, 1.2), box-shadow 0.35s ease;
+  cursor: pointer;
+}
+
+.star-card::before {
+  content: "";
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  width: 88px;
+  height: 22px;
+  background: rgba(140, 140, 140, 0.35);
+  transform: translateX(-50%) rotate(-2deg);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+.star-tag {
+  position: absolute;
+  top: 10px;
+  right: -12px;
+  z-index: 3;
+  padding: 5px 12px;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #fff;
+  background: #111;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  transform: rotate(4deg);
+}
+
+.star-card img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
+  border-radius: 4px;
+  filter: grayscale(1) contrast(1.06);
+  transition: filter 0.5s ease;
+}
+
+.star-card img:hover {
+  filter: grayscale(0) saturate(1.05) contrast(1.02);
+}
+
+.star-card figcaption {
+  margin-top: 12px;
+  font-family: "Reenie Beanie", cursive;
+  font-size: 1.5rem;
+  color: #3d3d3d;
+  text-align: center;
+}
+
+.star-card:hover {
+  transform: rotate(0deg) scale(1.04) translateY(-8px);
+  box-shadow: 0 30px 60px rgba(255, 255, 255, 0.22);
+  z-index: 5;
+}
+
+.s1 { --r: -3deg; }
+.s2 { --r: 3deg; }
+
 /* ---------- galería ---------- */
 .gallery {
   position: relative;
@@ -783,6 +872,38 @@ body.shake {
 
   .gallery {
     margin-top: 68px;
+  }
+
+  .stars-section {
+    margin-top: 72px;
+  }
+
+  .stars-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .star-card {
+    padding: 8px 8px 12px;
+  }
+
+  .star-card::before {
+    width: 58px;
+    height: 15px;
+    top: -11px;
+  }
+
+  .star-tag {
+    top: 8px;
+    right: -8px;
+    padding: 4px 9px;
+    font-size: 0.55rem;
+    letter-spacing: 2px;
+  }
+
+  .star-card figcaption {
+    font-size: 1.15rem;
+    margin-top: 8px;
   }
 }
 

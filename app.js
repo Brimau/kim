@@ -131,7 +131,7 @@ document.addEventListener("pointermove", (e) => {
 });
 
 /* revelar la galería al hacer scroll */
-const revealables = document.querySelectorAll(".polaroid");
+const revealables = document.querySelectorAll(".polaroid, .star-card");
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry, i) => {

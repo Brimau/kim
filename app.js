@@ -148,56 +148,21 @@ const observer = new IntersectionObserver(
 
 revealables.forEach((el) => observer.observe(el));
 
-/* música de cumpleaños hecha con WebAudio */
+/* música de "7 rings" de Ariana Grande vía YouTube */
+const SONG_ID = "QYh6mYIJG2Y";
 const musicBtn = document.getElementById("musicBtn");
-let audioCtx = null;
+const songPlayer = document.getElementById("songPlayer");
 let playing = false;
-let timerId = null;
-
-const NOTES = [
-  523.25, 0, 523.25, 0, 587.33, 659.25,
-  523.25, 0, 587.33, 659.25, 523.25,
-  392.0, 0, 523.25,
-];
-
-function scheduleNote(time, freq, duration) {
-  const osc = audioCtx.createOscillator();
-  const gain = audioCtx.createGain();
-  osc.type = "triangle";
-  osc.frequency.value = freq;
-  gain.gain.setValueAtTime(0, time);
-  gain.gain.linearRampToValueAtTime(0.25, time + 0.02);
-  gain.gain.exponentialRampToValueAtTime(0.001, time + duration);
-  osc.connect(gain);
-  gain.connect(audioCtx.destination);
-  osc.start(time);
-  osc.stop(time + duration + 0.05);
-}
-
-function scheduleChime(time) {
-  [1567.98, 2093.0].forEach((f) => scheduleNote(time, f, 1.2));
-}
-
-function loop() {
-  const beat = 0.34;
-  let t = audioCtx.currentTime + 0.1;
-  NOTES.forEach((f) => {
-    if (f > 0) scheduleNote(t, f, beat * 0.9);
-    t += beat;
-  });
-  scheduleChime(t + 0.2);
-  timerId = setTimeout(loop, (t - audioCtx.currentTime) * 1000);
-}
 
 function startMusic() {
-  audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-  loop();
+  songPlayer.src =
+    "https://www.youtube-nocookie.com/embed/" +
+    SONG_ID +
+    "?autoplay=1&playsinline=1&rel=0&start=3";
 }
 
 function stopMusic() {
-  clearTimeout(timerId);
-  audioCtx.close();
-  audioCtx = null;
+  songPlayer.src = "about:blank";
 }
 
 musicBtn.addEventListener("click", () => {
@@ -209,7 +174,7 @@ musicBtn.addEventListener("click", () => {
   } else {
     startMusic();
     playing = true;
-    musicBtn.textContent = "⏸ música encendida";
+    musicBtn.textContent = "⏸ parar música";
     musicBtn.classList.add("on");
   }
 });

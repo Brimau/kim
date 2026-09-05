@@ -10,6 +10,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 html,
@@ -234,6 +235,20 @@ body {
   margin: 18px 0;
   letter-spacing: 8px;
   animation: sparkle 2s ease-in-out infinite alternate;
+}
+
+.age {
+  margin-top: 8px;
+  font-family: "Damion", cursive;
+  font-size: 1.35rem;
+  color: var(--grey);
+  letter-spacing: 3px;
+}
+
+.age strong {
+  font-size: 2.1em;
+  color: #fff;
+  text-shadow: 0 0 18px rgba(255, 255, 255, 0.7);
 }
 
 .message {
@@ -548,4 +563,115 @@ body.shake {
   inset: 0;
   pointer-events: none;
   z-index: 5;
+}
+
+/* ---------- reproductor oculto ---------- */
+.song-player {
+  position: fixed;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ---------- responsivo ---------- */
+@media (max-width: 640px) {
+  body {
+    padding: 14px 12px;
+  }
+
+  .marquee {
+    top: 8px;
+    opacity: 0.4;
+  }
+
+  .marquee span {
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+  }
+
+  .card {
+    padding: 30px 16px 32px;
+    border-radius: 22px;
+  }
+
+  .hoops {
+    height: 52px;
+    margin-bottom: 4px;
+  }
+
+  .hoop {
+    width: 46px;
+    height: 46px;
+    border-width: 7px;
+  }
+
+  .kicker {
+    font-size: 0.72rem;
+    letter-spacing: 3px;
+  }
+
+  .message {
+    font-size: 0.95rem;
+    line-height: 1.75;
+  }
+
+  .age {
+    font-size: 1.1rem;
+  }
+
+  .letter {
+    padding: 26px 18px 22px;
+    transform: rotate(-1deg);
+  }
+
+  .letter p {
+    font-size: 0.93rem;
+  }
+
+  .confetti-btn {
+    width: min(320px, 100%);
+    padding: 15px 20px;
+    font-size: 0.98rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 14px;
+  }
+
+  .polaroid {
+    padding: 8px 8px 10px;
+  }
+
+  .polaroid figcaption {
+    font-size: 1.25rem;
+    margin-top: 7px;
+  }
+
+  .music-btn {
+    bottom: 12px;
+    right: 12px;
+    padding: 10px 16px;
+    font-size: 0.78rem;
+  }
+
+  .gallery-title {
+    font-size: 2.4rem;
+  }
+
+  .drama-word {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .hoop.left { left: 24%; }
+  .hoop.right { right: 24%; }
+
+  .gallery-sub {
+    margin-bottom: 26px;
+  }
 }

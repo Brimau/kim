@@ -5,7 +5,7 @@ let width, height;
 let pieces = [];
 let running = false;
 
-const COLORS = ["#ff3ea5", "#ffd166", "#8a2be2", "#ffffff", "#ff7b9c", "#b388ff"];
+const COLORS = ["#ffffff", "#0a0a0a", "#cccccc", "#555555", "#ffffff", "#e6e6e6"];
 
 function resize() {
   width = canvas.width = window.innerWidth;

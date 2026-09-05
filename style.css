@@ -565,17 +565,6 @@ body.shake {
   z-index: 5;
 }
 
-/* ---------- reproductor oculto ---------- */
-.song-player {
-  position: fixed;
-  width: 0;
-  height: 0;
-  opacity: 0;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: -1;
-}
-
 /* ---------- responsivo ---------- */
 @media (max-width: 640px) {
   body {

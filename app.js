@@ -67,7 +67,7 @@ document.getElementById("confettiBtn").addEventListener("click", drama);
 setTimeout(burst, 800);
 setTimeout(burst, 2600);
 
-const DRAMA_WORDS = ["¡MADDIE!!", "💅", "✨", "que siga el drama", "🕶️", "en su carita", "💋", "ROBA LA ESCENA", "👑", "sin filtros", "⚡", "main character 🎬"];
+const DRAMA_WORDS = ["¡MADDIE!", "que siga el drama", "ROBA LA ESCENA", "en su carita", "sin filtros", "main character", "sin guion", "aplausos", "que baje la cortina", "créditos finales"];
 
 function drama() {
   const btn = document.getElementById("confettiBtn");
@@ -148,21 +148,18 @@ const observer = new IntersectionObserver(
 
 revealables.forEach((el) => observer.observe(el));
 
-/* música de "7 rings" de Ariana Grande vía YouTube */
-const SONG_ID = "QYh6mYIJG2Y";
+/* música: "7 rings" de Ariana Grande (audio local) */
 const musicBtn = document.getElementById("musicBtn");
 const songPlayer = document.getElementById("songPlayer");
 let playing = false;
 
 function startMusic() {
-  songPlayer.src =
-    "https://www.youtube-nocookie.com/embed/" +
-    SONG_ID +
-    "?autoplay=1&playsinline=1&rel=0&start=3";
+  songPlayer.currentTime = 0;
+  songPlayer.play();
 }
 
 function stopMusic() {
-  songPlayer.src = "about:blank";
+  songPlayer.pause();
 }
 
 musicBtn.addEventListener("click", () => {

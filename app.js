@@ -150,12 +150,13 @@ revealables.forEach((el) => observer.observe(el));
 
 /* música: "7 rings" de Ariana Grande (audio local) */
 const musicBtn = document.getElementById("musicBtn");
+const musicLabel = document.getElementById("musicLabel");
 const songPlayer = document.getElementById("songPlayer");
 let playing = false;
 
 function startMusic() {
   songPlayer.currentTime = 0;
-  songPlayer.play();
+  songPlayer.play().catch(() => {});
 }
 
 function stopMusic() {
@@ -166,12 +167,12 @@ musicBtn.addEventListener("click", () => {
   if (playing) {
     stopMusic();
     playing = false;
-    musicBtn.textContent = "▶ poner música";
+    musicLabel.textContent = "▶ poner música";
     musicBtn.classList.remove("on");
   } else {
     startMusic();
     playing = true;
-    musicBtn.textContent = "⏸ parar música";
+    musicLabel.textContent = "parar música";
     musicBtn.classList.add("on");
   }
 });
